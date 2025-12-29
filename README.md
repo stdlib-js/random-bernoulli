@@ -35,32 +35,20 @@ limitations under the License.
 
 > Generate pseudorandom numbers drawn from a [Bernoulli][@stdlib/random/base/bernoulli] distribution.
 
-<section class="installation">
 
-## Installation
-
-```bash
-npm install @stdlib/random-bernoulli
-```
-
-Alternatively,
-
--   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
--   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
--   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
-
-The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
-
-To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
-
-</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-var bernoulli = require( '@stdlib/random-bernoulli' );
+import bernoulli from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-bernoulli@esm/index.mjs';
+```
+
+You can also import the following named exports from the package:
+
+```javascript
+import { factory } from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-bernoulli@esm/index.mjs';
 ```
 
 #### bernoulli( shape, p\[, options] )
@@ -81,8 +69,8 @@ The function has the following parameters:
 When provided a scalar distribution parameter, every element in the output [ndarray][@stdlib/ndarray/ctor] is drawn from the same distribution. To generate pseudorandom numbers drawn from different distributions, provide a distribution parameter argument as an [ndarray][@stdlib/ndarray/ctor]. The following example demonstrates broadcasting an [ndarray][@stdlib/ndarray/ctor] containing distribution parameters to generate sub-matrices drawn from different distributions.
 
 ```javascript
-var getShape = require( '@stdlib/ndarray-shape' );
-var array = require( '@stdlib/ndarray-array' );
+import getShape from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-shape@esm/index.mjs';
+import array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-array@esm/index.mjs';
 
 var p = array( [ [ [ 0.5 ] ], [ [ 0.7 ] ] ] );
 // returns <ndarray>
@@ -97,7 +85,7 @@ var arr = bernoulli( [ 2, 3, 3 ], p );
 If provided an empty shape, the function returns a zero-dimensional [ndarray][@stdlib/ndarray/ctor].
 
 ```javascript
-var getShape = require( '@stdlib/ndarray-shape' );
+import getShape from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-shape@esm/index.mjs';
 
 var arr = bernoulli( [], 0.5 );
 // returns <ndarray>
@@ -120,7 +108,7 @@ The function accepts the following options:
 By default, the function returns an [ndarray][@stdlib/ndarray/ctor] having a [data type][@stdlib/ndarray/dtypes] determined by the function's output data type [policy][@stdlib/ndarray/output-dtype-policies]. To override the default behavior, set the `dtype` option.
 
 ```javascript
-var getDType = require( '@stdlib/ndarray-dtype' );
+import getDType from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-dtype@esm/index.mjs';
 
 var opts = {
     'dtype': 'generic'
@@ -138,7 +126,7 @@ var dt = String( getDType( arr ) );
 Fills an [ndarray][@stdlib/ndarray/ctor] with pseudorandom numbers drawn from a [Bernoulli][@stdlib/random/base/bernoulli] distribution.
 
 ```javascript
-var zeros = require( '@stdlib/ndarray-zeros' );
+import zeros from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-zeros@esm/index.mjs';
 
 var out = zeros( [ 3, 3 ] );
 // returns <ndarray>
@@ -160,7 +148,7 @@ The method has the following parameters:
 Returns a function for generating pseudorandom numbers drawn from a [Bernoulli][@stdlib/random/base/bernoulli] distribution.
 
 ```javascript
-var getShape = require( '@stdlib/ndarray-shape' );
+import getShape from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-shape@esm/index.mjs';
 
 var random = bernoulli.factory();
 
@@ -181,7 +169,7 @@ The method accepts the following options:
 To use a custom PRNG as the underlying source of uniformly distributed pseudorandom numbers, set the `prng` option.
 
 ```javascript
-var minstd = require( '@stdlib/random-base-minstd' );
+import minstd from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-minstd@esm/index.mjs';
 
 var opts = {
     'prng': minstd.normalized
@@ -227,7 +215,7 @@ var seed = bernoulli.seed;
 If the `factory` method is provided a PRNG for uniformly distributed numbers, the associated property value on the returned function is `null`.
 
 ```javascript
-var minstd = require( '@stdlib/random-base-minstd-shuffle' ).normalized;
+var minstd = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-minstd-shuffle' ).normalized;
 
 var random = bernoulli.factory({
     'prng': minstd
@@ -249,7 +237,7 @@ var len = bernoulli.seedLength;
 If the `factory` method is provided a PRNG for uniformly distributed numbers, the associated property value on the returned function is `null`.
 
 ```javascript
-var minstd = require( '@stdlib/random-base-minstd-shuffle' ).normalized;
+var minstd = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-minstd-shuffle' ).normalized;
 
 var random = bernoulli.factory({
     'prng': minstd
@@ -271,7 +259,7 @@ var state = bernoulli.state;
 If the `factory` method is provided a PRNG for uniformly distributed numbers, the associated property value on the returned function is `null`.
 
 ```javascript
-var minstd = require( '@stdlib/random-base-minstd-shuffle' ).normalized;
+var minstd = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-minstd-shuffle' ).normalized;
 
 var random = bernoulli.factory({
     'prng': minstd
@@ -293,7 +281,7 @@ var len = bernoulli.stateLength;
 If the `factory` method is provided a PRNG for uniformly distributed numbers, the associated property value on the returned function is `null`.
 
 ```javascript
-var minstd = require( '@stdlib/random-base-minstd-shuffle' ).normalized;
+var minstd = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-minstd-shuffle' ).normalized;
 
 var random = bernoulli.factory({
     'prng': minstd
@@ -315,7 +303,7 @@ var sz = bernoulli.byteLength;
 If the `factory` method is provided a PRNG for uniformly distributed numbers, the associated property value on the returned function is `null`.
 
 ```javascript
-var minstd = require( '@stdlib/random-base-minstd-shuffle' ).normalized;
+var minstd = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-minstd-shuffle' ).normalized;
 
 var random = bernoulli.factory({
     'prng': minstd
@@ -347,10 +335,15 @@ var sz = random.byteLength;
 
 <!-- eslint no-undef: "error" -->
 
-```javascript
-var logEach = require( '@stdlib/console-log-each' );
-var ndarray2array = require( '@stdlib/ndarray-to-array' );
-var bernoulli = require( '@stdlib/random-bernoulli' );
+```html
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<script type="module">
+
+import logEach from 'https://cdn.jsdelivr.net/gh/stdlib-js/console-log-each@esm/index.mjs';
+import ndarray2array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-to-array@esm/index.mjs';
+import bernoulli from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-bernoulli@esm/index.mjs';
 
 // Create a function for generating random arrays originating from the same state:
 var random = bernoulli.factory({
@@ -381,6 +374,10 @@ var arr = ndarray2array( x4 );
 // Print the contents:
 console.log( '' );
 logEach( '%f, %f, %f', arr[ 0 ], arr[ 1 ], arr[ 2 ] );
+
+</script>
+</body>
+</html>
 ```
 
 </section>
@@ -404,7 +401,7 @@ logEach( '%f, %f, %f', arr[ 0 ], arr[ 1 ], arr[ 2 ] );
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -467,17 +464,17 @@ Copyright &copy; 2016-2025. The Stdlib [Authors][stdlib-authors].
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/random-bernoulli/main/LICENSE
 
-[@stdlib/random/base/bernoulli]: https://github.com/stdlib-js/random-base-bernoulli
+[@stdlib/random/base/bernoulli]: https://github.com/stdlib-js/random-base-bernoulli/tree/esm
 
-[@stdlib/array/uint32]: https://github.com/stdlib-js/array-uint32
+[@stdlib/array/uint32]: https://github.com/stdlib-js/array-uint32/tree/esm
 
-[@stdlib/ndarray/dtypes]: https://github.com/stdlib-js/ndarray-dtypes
+[@stdlib/ndarray/dtypes]: https://github.com/stdlib-js/ndarray-dtypes/tree/esm
 
-[@stdlib/ndarray/output-dtype-policies]: https://github.com/stdlib-js/ndarray-output-dtype-policies
+[@stdlib/ndarray/output-dtype-policies]: https://github.com/stdlib-js/ndarray-output-dtype-policies/tree/esm
 
-[@stdlib/ndarray/ctor]: https://github.com/stdlib-js/ndarray-ctor
+[@stdlib/ndarray/ctor]: https://github.com/stdlib-js/ndarray-ctor/tree/esm
 
-[@stdlib/ndarray/base/broadcast-shapes]: https://github.com/stdlib-js/ndarray-base-broadcast-shapes
+[@stdlib/ndarray/base/broadcast-shapes]: https://github.com/stdlib-js/ndarray-base-broadcast-shapes/tree/esm
 
 </section>
 
