@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2025-12-27)
+## Unreleased (2025-12-29)
 
 <section class="features">
 
@@ -22,6 +22,7 @@
 
 <details>
 
+-   [`73f0550`](https://github.com/stdlib-js/stdlib/commit/73f055020dcc55a92d32c1cba59a7143d833813f) - **docs:** update dtype type _(by Athan Reines)_
 -   [`11bb93d`](https://github.com/stdlib-js/stdlib/commit/11bb93d3acb674846c77bee38a6e54675549b900) - **feat:** add `random/bernoulli` _(by Athan Reines)_
 
 </details>
